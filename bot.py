@@ -3,29 +3,18 @@ import logging
 from aiogram import Bot, Dispatcher, types
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, WebAppInfo
 
-# Вставьте сюда токен вашего бота от @BotFather
 BOT_TOKEN = "8728153751:AAGk-VWQyQQVhhtpXw3bYr_ldaVaF0SpVj0"
 
-# Ссылка на ваше веб-приложение (Mini App)
 WEB_APP_URL = "https://qvilxy.github.io/swapka-app/" 
 
-# Настройка логирования
 logging.basicConfig(level=logging.INFO)
 
-# Инициализация бота и диспетчера
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
 
-# Обработчик команды /start
 @dp.message(commands=["start"])
 async def cmd_start(message: types.Message):
-    # Создаем Inline кнопку с типом web_app
-    # Именно web_app открывает приложение. 
-    # Telegram сам определит, открывать ли его в Full Screen, 
-    # но обычно Inline кнопки открывают его поверх чата (что визуально похоже на фуллскрин или шторку).
-    # Чтобы гарантировать максимальное раскрытие, внутри JS кода приложения (который я дал выше) 
-    # уже есть вызов tg.expand().
-    
+
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [
             InlineKeyboardButton(
@@ -40,7 +29,6 @@ async def cmd_start(message: types.Message):
         reply_markup=keyboard
     )
 
-# Основная функция запуска
 async def main():
     await dp.start_polling(bot)
 
