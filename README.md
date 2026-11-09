@@ -1,2 +1,1 @@
-# swapka-app
-Telegram Mini App SWAPKA
+# Интерфейс мини-приложения telegram, где пользователи могут продавать свои вещи
